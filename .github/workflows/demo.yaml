@@ -13,11 +13,13 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - run: echo "This is a test step"
 
   integration:
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - run: echo "This is an integration step"
       - run: exit 1
