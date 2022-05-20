@@ -39,6 +39,8 @@ workflows:
   django:
     jobs:
       - build
-      - test
+      - test: 
+          requires: 
+            - build
       - integration
       - prod
