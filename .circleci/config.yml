@@ -23,10 +23,9 @@ jobs:
     steps:
       - checkout
       - run:
-          shell: /bin/bash
           command: |
             echo "This is an integration step"
-            exit 1
+            # exit 1                    # can't?
 
   prod:
     docker:
