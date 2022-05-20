@@ -30,3 +30,14 @@ jobs:
     if: ${{ always() }}
     steps:
       - run: echo "This is a deploy step"
+      
+  artifact:
+    runs-on: ubuntu-latest
+    needs: prod
+    steps:
+      - run: echo "this is a test" > output.txt
+      - name: download build output
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-output
+          path: downloads
